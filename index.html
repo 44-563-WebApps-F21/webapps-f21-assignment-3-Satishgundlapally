@@ -102,3 +102,51 @@ The following table shows about food items.
     </table>         
 </body>
 </html>
+
+<hr>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>sixth html program</title>
+</head>
+<body>
+<h1>CODE DISPLAY</h1>
+
+<pr>
+There are formulas for the area of a triangle in terms of the 
+coordinates of the vertices that automatically give the algebraic area.
+ For example, to find the algebraic area of a triangle with first vertex
+at (0, 0), second vertex at (a, b) and third vertex at (c, d), we may
+  use the formula (1/2)(ad - bc). This will be positive if the slope d/c 
+of the line from (0, 0) through (c, d) is greater than the slope b/a of
+the line from (0, 0) through (a, b), since d/c > b/a implies that ad > 
+c and ad - bc > 0. In terms of vectors, if the line along (a, b) 
+rotates in a counterclockwise direction to get to the line along
+(c, d), then the triangle from (0, 0) to (a, b) to (c, d) has 
+positive area, and if it rotates in a clockwise direction, the 
+algebraic area of the triangle is negative.
+ <code>https://www.techhouse.org/~mdp/midpoint/oriented1.php</code>
+
+</pr>
+
+<pre>
+int signed_area_parallelogram(point2d p1, point2d p2, point2d p3) {
+    return cross(p2 - p1, p3 - p2);
+}
+
+double triangle_area(point2d p1, point2d p2, point2d p3) {
+    return abs(signed_area_parallelogram(p1, p2, p3)) / 2.0;
+}
+
+bool clockwise(point2d p1, point2d p2, point2d p3) {
+    return signed_area_parallelogram(p1, p2, p3) < 0;
+}
+
+bool counter_clockwise(point2d p1, point2d p2, point2d p3) {
+    return signed_area_parallelogram(p1, p2, p3) > 0;
+}
+</pre>
+<code>https://cp-algorithms.com/geometry/oriented-triangle-area.html</code>
+</body>
+</html>
